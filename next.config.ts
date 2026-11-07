@@ -1,12 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   experimental: {
     agentFeedback: true,
   },
+
   cacheComponents: true,
+
   partialPrefetching: true,
+
+  cacheLife: {
+    creators: {
+      stale: 60,
+      revalidate: 300,
+      expire: 3600,
+    },
+  },
+
   turbopack: {
     rules: {
       "*.css": {
